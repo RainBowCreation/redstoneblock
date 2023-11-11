@@ -1,0 +1,16 @@
+[
+{
+  "modid": "server_extension",
+  "name": "server_extension",
+  "description": "RainBowCreation server extension pack",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["RainBowCreaion", "NathanielSong", "VocanicZ"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
