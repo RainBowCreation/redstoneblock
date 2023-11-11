@@ -16,12 +16,16 @@ import net.rainbowcreation.serverExtension.utils.Confighandler;
 import net.rainbowcreation.serverExtension.utils.Reference;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextFormatting;
+
+import static net.rainbowcreation.serverExtension.utils.Confighandler.settings;
 
 @Mod(modid = Reference.MODID, name = Reference.NAME, version = Reference.VERSION, serverSideOnly = true, acceptableRemoteVersions = "*")
 @Mod.EventBusSubscriber(modid = Reference.MODID)
@@ -29,14 +33,20 @@ public class main {
     @Mod.Instance
     public static main instance;
     public static File config;
-    public static final int staticTimeInTicks = Confighandler.TIME * 20;
+    public static final int staticTimeInTicks = settings.TIME * 20;
+    public static List<Integer> WARNING_TIME_LIST = new ArrayList<>();
 
     public static int timeInTicks = staticTimeInTicks;
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        Confighandler.registerConfig(event);
+        int i = settings.WARNING_TIME;
+        while (i >= 1) {
+            WARNING_TIME_LIST.add(i);
+            i/=2;
+        }
     }
+
     @SubscribeEvent
     public static void worldTick(TickEvent.WorldTickEvent event) {
         World world = event.world;
@@ -46,7 +56,7 @@ public class main {
             for (Entity entity : world.loadedEntityList) {
                 if (entity instanceof EntityItem) {
                     EntityItem item = (EntityItem) entity;
-                    List<String> whitelist = Arrays.asList(Confighandler.ITEM_WHITELIST);
+                    List<String> whitelist = Arrays.asList(Confighandler.whitelist.ITEM_WHITELIST);
                     if (!whitelist.contains(((ResourceLocation) Item.REGISTRY.getNameForObject(item.getItem().getItem())).toString())) {
                         item.setDead();
                         amount++;
@@ -56,20 +66,20 @@ public class main {
             playerList.sendMessage((ITextComponent) new TextComponentString(TextFormatting.BOLD + "[Clear Lag] " + TextFormatting.RESET + "Cleared " + TextFormatting.RED + amount + TextFormatting.RESET + " items!"));
             timeInTicks = staticTimeInTicks;
         }
-        for (int i: Confighandler.WARNING_TIME_LIST) {
+        for (int i: WARNING_TIME_LIST) {
             if (i * 20 == timeInTicks) {
-                if (i % 60 > 1)
-                    playerList.sendMessage((ITextComponent) new TextComponentString(TextFormatting.BOLD + "[Clear Lag] " + TextFormatting.RESET + "Items will be cleared in " + TextFormatting.RED + i % 60 + TextFormatting.RESET + " minutes!"));
+                if (i / 60 >= 1)
+                    playerList.sendMessage((ITextComponent) new TextComponentString(TextFormatting.BOLD + "[Clear Lag] " + TextFormatting.RESET + "Items will be cleared in " + TextFormatting.RED + i/60 + TextFormatting.RESET + " minutes!"));
                 else
                     playerList.sendMessage((ITextComponent) new TextComponentString(TextFormatting.BOLD + "[Clear Lag] " + TextFormatting.RESET + "Items will be cleared in " + TextFormatting.RED + i + TextFormatting.RESET + " seconds!"));
             }
-            if (timeInTicks > 0)
-                timeInTicks--;
         }
+        if (timeInTicks > 0)
+            timeInTicks--;
     }
     @SubscribeEvent
     public static void onPlayerJoin(PlayerEvent.PlayerLoggedInEvent event) {
-        event.player.addPotionEffect(new PotionEffect(MobEffects.ABSORPTION, 15*20, 2));
+        event.player.addPotionEffect(new PotionEffect(MobEffects.ABSORPTION, 60*20, 2));
         event.player.sendMessage(new TextComponentString(TextFormatting.BOLD + "[Auth] " + TextFormatting.RESET + "please login or register\n/login <password>\nor\n/register <password> <password>"));
     }
 }
