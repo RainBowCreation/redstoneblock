@@ -1,10 +1,13 @@
 package net.rainbowcreation.serverExtension;
 
+import net.minecraft.client.audio.Sound;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.MobEffects;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.server.management.PlayerList;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.Mod;
@@ -41,16 +44,19 @@ public class main {
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         int i = settings.WARNING_TIME;
-        while (i >= 1) {
+        while (i > 10) {
             WARNING_TIME_LIST.add(i);
             i/=2;
         }
+        for (int j = 1; j <= 10; j++)
+            WARNING_TIME_LIST.add(j);
     }
 
     @SubscribeEvent
     public static void worldTick(TickEvent.WorldTickEvent event) {
         World world = event.world;
         PlayerList playerList = world.getMinecraftServer().getPlayerList();
+        List<EntityPlayerMP> plist = playerList.getPlayers();
         if (timeInTicks == 0) {
             int amount = 0;
             for (Entity entity : world.loadedEntityList) {
@@ -64,6 +70,10 @@ public class main {
                 }
             }
             playerList.sendMessage((ITextComponent) new TextComponentString(TextFormatting.BOLD + "[Clear Lag] " + TextFormatting.RESET + "Cleared " + TextFormatting.RED + amount + TextFormatting.RESET + " items!"));
+            for (EntityPlayerMP player : plist) {
+                player.addExperience(50);
+            }
+            playerList.sendMessage((ITextComponent) new TextComponentString(TextFormatting.BOLD + "[Sorry Gift] " + TextFormatting.RESET + "Sorry for roll back here was " + TextFormatting.GREEN + "50" + TextFormatting.RESET + " exps. you will get this gift every 30 minutes!"));
             timeInTicks = staticTimeInTicks;
         }
         for (int i: WARNING_TIME_LIST) {
@@ -79,7 +89,7 @@ public class main {
     }
     @SubscribeEvent
     public static void onPlayerJoin(PlayerEvent.PlayerLoggedInEvent event) {
-        event.player.addPotionEffect(new PotionEffect(MobEffects.ABSORPTION, 60*20, 2));
+        event.player.addPotionEffect(new PotionEffect(MobEffects.ABSORPTION, 60*20, 4));
         event.player.sendMessage(new TextComponentString(TextFormatting.BOLD + "[Auth] " + TextFormatting.RESET + "please login or register\n/login <password>\nor\n/register <password> <password>"));
     }
 }
