@@ -69,19 +69,19 @@ public class main {
                     }
                 }
             }
-            playerList.sendMessage((ITextComponent) new TextComponentString(TextFormatting.BOLD + "[Clear Lag] " + TextFormatting.RESET + "Cleared " + TextFormatting.RED + amount + TextFormatting.RESET + " items!"));
+            playerList.sendMessage((ITextComponent) new TextComponentString(TextFormatting.BOLD + "[Clear Lag] " + TextFormatting.RESET + "Cleared " + TextFormatting.DARK_GRAY + amount + TextFormatting.RESET + " items!"));
             for (EntityPlayerMP player : plist) {
                 player.addExperience(50);
             }
-            playerList.sendMessage((ITextComponent) new TextComponentString(TextFormatting.BOLD + "[Sorry Gift] " + TextFormatting.RESET + "Sorry for roll back here was " + TextFormatting.GREEN + "50" + TextFormatting.RESET + " exps. you will get this gift every 30 minutes!"));
+            playerList.sendMessage((ITextComponent) new TextComponentString(TextFormatting.BOLD + "[Sorry Gift] " + TextFormatting.RESET + "Sorry for roll back here was " + TextFormatting.DARK_GRAY + "50" + TextFormatting.RESET + " exps. you will get this gift every 30 minutes!"));
             timeInTicks = staticTimeInTicks;
         }
         for (int i: WARNING_TIME_LIST) {
             if (i * 20 == timeInTicks) {
                 if (i / 60 >= 1)
-                    playerList.sendMessage((ITextComponent) new TextComponentString(TextFormatting.BOLD + "[Clear Lag] " + TextFormatting.RESET + "Items will be cleared in " + TextFormatting.RED + i/60 + TextFormatting.RESET + " minutes!"));
+                    playerList.sendMessage((ITextComponent) new TextComponentString(TextFormatting.BOLD + "[Clear Lag] " + TextFormatting.RESET + "Items will be cleared around " + TextFormatting.DARK_GRAY + (i/60)+1 + TextFormatting.RESET + " minutes!"));
                 else
-                    playerList.sendMessage((ITextComponent) new TextComponentString(TextFormatting.BOLD + "[Clear Lag] " + TextFormatting.RESET + "Items will be cleared in " + TextFormatting.RED + i + TextFormatting.RESET + " seconds!"));
+                    playerList.sendMessage((ITextComponent) new TextComponentString(TextFormatting.BOLD + "[Clear Lag] " + TextFormatting.RESET + "Items will be cleared in " + TextFormatting.DARK_GRAY + i + TextFormatting.RESET + " seconds!"));
             }
         }
         if (timeInTicks > 0)
