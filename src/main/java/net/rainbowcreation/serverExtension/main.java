@@ -90,11 +90,11 @@ public class main {
         for (int i: WARNING_TIME_LIST) {
             if (i * 20 == timeInTicks) {
                 long[] lst = Time.secondToMinute(i);
-                TextComponentString text = new TextComponentString(TextFormatting.BOLD + "[Clear Lag] " + TextFormatting.RESET + "Items will be cleared : ");
+                TextComponentString text = new TextComponentString(TextFormatting.BOLD + "[Clear Lag] " + TextFormatting.RESET + "Items will be cleared :");
                 if (lst[0] > 0)
-                     text.appendSibling(new TextComponentString(TextFormatting.RED + String.valueOf(lst[0]) + TextFormatting.RESET + " minutes "));
+                     text.appendSibling(new TextComponentString(" " + TextFormatting.RED + String.valueOf(lst[0]) + TextFormatting.RESET + " minutes"));
                 if (lst[1] > 0)
-                    text.appendSibling(new TextComponentString(TextFormatting.RED + String.valueOf(lst[1]) + TextFormatting.RESET + " seconds"));
+                    text.appendSibling(new TextComponentString(" " + TextFormatting.RED + String.valueOf(lst[1]) + TextFormatting.RESET + " seconds"));
                 text.appendText("!!.");
                 playerList.sendMessage(text);
             }

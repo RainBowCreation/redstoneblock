@@ -13,7 +13,7 @@ public class Confighandler {
     public static Settings settings = new Settings();
     public static class Settings {
         @Config.Comment({"Time in seconds between each clear"})
-        public int TIME = 1800;
+        public int TIME = 3600;
 
         @Comment({"Time in seconds clear is announced to chat before-hand, set to zero to disable warning"})
         public int WARNING_TIME = 900;
