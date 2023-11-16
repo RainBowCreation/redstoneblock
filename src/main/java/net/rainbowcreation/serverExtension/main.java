@@ -1,6 +1,5 @@
 package net.rainbowcreation.serverExtension;
 
-import ibxm.Player;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -20,18 +19,13 @@ import net.rainbowcreation.serverExtension.utils.Confighandler;
 import net.rainbowcreation.serverExtension.utils.Reference;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Spliterator;
+import java.util.*;
 
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextFormatting;
-import net.rainbowcreation.serverExtension.utils.Teleport;
 import net.rainbowcreation.serverExtension.utils.Time;
-import org.lwjgl.Sys;
 
 import static net.rainbowcreation.serverExtension.utils.Confighandler.settings;
 
@@ -41,13 +35,21 @@ public class main {
     @Mod.Instance
     public static main instance;
     public static File config;
-    public static final int staticTimeInTicks = settings.TIME * 20;
-    public static List<Integer> WARNING_TIME_LIST = new ArrayList<>();
+    private static final int staticTime = settings.TIME;
 
-    public static int timeInTicks = staticTimeInTicks;
+    private static int timeRemaining = staticTime;
+    private static int[] timePrevious = new int[3];
+    private static List<String> whitelist = Arrays.asList(Confighandler.whitelist.ITEM_WHITELIST);
+    private static int Tick = 20;
+    private static int tick = Tick;
+    private static int[] M_TIME_TO_1;
+    private static SPacketTitle PACKET_MAINTENANCE;
+    private static TextComponentString MAINTENANCE_TEXT = new TextComponentString(TextFormatting.RED + "Daily Maintenance " + TextFormatting.RESET);
+
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
+        instance = this;
         List<String> header = Arrays.asList("######################################################################################",
                 "#  _____       _       ____                 _____                _   _               #",
                 "# |  __ \\     (_)     |  _ \\               / ____|              | | (_)              #",
@@ -57,91 +59,105 @@ public class main {
                 "# |_|  \\_\\__,_|_|_| |_|____/ \\___/ \\_/\\_/  \\_____|_|  \\___|\\__,_|\\__|_|\\___/|_|  |_| #",
                 "#                                                                                    #",
                 "################################################################sever-extension#######");
-        System.out.println("Mode:" +Reference.MODE);
-        for (String txt : header) {
+        System.out.println("Mode:" +settings.MODE);
+        for (String txt : header)
             System.out.println(txt);
-        }
         int i = settings.WARNING_TIME;
         while (i > 10) {
-            WARNING_TIME_LIST.add(i);
+            Time.WARNING_TIME_LIST.add(i);
             i/=2;
         }
         for (int j = 1; j <= 10; j++)
-            WARNING_TIME_LIST.add(j);
+             Time.WARNING_TIME_LIST.add(j);
+        Time.prefix = settings.TIME_ZONE_PREFIX;
+        Time.offset = settings.TIME_ZONE_OFFSET;
+        timePrevious = Time.getCurrentTime();
+        String[] TIME_FROM = Time.timeToString(settings.M_TIME_FROM);
+        String[] TIME_TO = Time.timeToString(settings.M_TIME_TO);
+        M_TIME_TO_1 = Time.getSubstract(settings.M_TIME_TO, new int[]{0,0,1});
+        MAINTENANCE_TEXT.appendSibling(new TextComponentString(TIME_FROM[0] + ":" + TIME_FROM[1] + TextFormatting.RED + "-" + TextFormatting.RESET + TIME_TO[0] + ":" + TIME_TO[1] + TextFormatting.RED));
+        PACKET_MAINTENANCE = new SPacketTitle(SPacketTitle.Type.TITLE, MAINTENANCE_TEXT, 0, 100,0);
     }
 
     @SubscribeEvent
     public static void worldTick(TickEvent.WorldTickEvent event) {
+        if (tick > 0) {
+            tick--;
+            return;
+        }
+        else
+            tick = Tick;
+        int[] time = Time.getCurrentTime();
+        if (time[2] == timePrevious[2])
+            return;
         World world = event.world;
         PlayerList playerList = world.getMinecraftServer().getPlayerList();
         List<EntityPlayerMP> plist = playerList.getPlayers();
-        if (timeInTicks == 0) {
-            int amount = 0;
-            for (Entity entity : world.loadedEntityList) {
-                if (entity instanceof EntityItem) {
-                    EntityItem item = (EntityItem) entity;
-                    List<String> whitelist = Arrays.asList(Confighandler.whitelist.ITEM_WHITELIST);
-                    if (!whitelist.contains(((ResourceLocation) Item.REGISTRY.getNameForObject(item.getItem().getItem())).toString())) {
-                        item.setDead();
-                        amount++;
+        if (timeRemaining == 0) {
+            if (settings.clearItems) {
+                int amount = 0;
+                for (Entity entity : world.loadedEntityList) {
+                    if (entity instanceof EntityItem) {
+                        EntityItem item = (EntityItem) entity;
+                        if (!whitelist.contains(((ResourceLocation) Item.REGISTRY.getNameForObject(item.getItem().getItem())).toString())) {
+                            item.setDead();
+                            amount++;
+                        }
                     }
                 }
+                if (settings.MODE.equals("server"))
+                    playerList.sendMessage((ITextComponent) new TextComponentString(TextFormatting.BOLD + "[Clear Lag] " + TextFormatting.RESET + "Cleared " + TextFormatting.RED + amount + TextFormatting.RESET + " items!"));
             }
-            if (Reference.MODE.equals("server")) {
-                playerList.sendMessage((ITextComponent) new TextComponentString(TextFormatting.BOLD + "[Clear Lag] " + TextFormatting.RESET + "Cleared " + TextFormatting.RED + amount + TextFormatting.RESET + " items!"));
-            }
-            timeInTicks = staticTimeInTicks;
+            timeRemaining = staticTime;
+            return;
         }
-        switch (Reference.MODE) {
+        switch (settings.MODE) {
             case ("server"): {
-                for (int i: WARNING_TIME_LIST) {
-                    if (i * 20 == timeInTicks) {
-                        long[] lst = Time.secondToMinute(i);
-                        TextComponentString text = new TextComponentString(TextFormatting.BOLD + "[Clear Lag] " + TextFormatting.RESET + "Items will be cleared :");
-                        if (lst[0] > 0)
-                            text.appendSibling(new TextComponentString(" " + TextFormatting.RED + String.valueOf(lst[0]) + TextFormatting.RESET + " minutes"));
-                        if (lst[1] > 0)
-                            text.appendSibling(new TextComponentString(" " + TextFormatting.RED + String.valueOf(lst[1]) + TextFormatting.RESET + " seconds"));
-                        text.appendText("!!.");
-                        playerList.sendMessage(text);
-                    }
+                if (time[0] != timePrevious[0]) {
+                    playerList.sendMessage(new TextComponentString(TextFormatting.BOLD + "[Maintenance Scheduler] " + TextFormatting.RESET).appendSibling(MAINTENANCE_TEXT));
+                }
+                if (!Time.alert(settings.M_TIME_FROM, "Maintenance Scheduler", "Server close in", playerList, true))
+                    Time.alert(timeRemaining, "Clear Lag", "Items will be cleared in", playerList);
+                if (Time.getSubstractInSecond(settings.M_TIME_FROM, Time.getCurrentTime()) == 0) {
+                    world.getMinecraftServer().initiateShutdown();
+                    return;
                 }
                 break;
             }
             case ("lobby"): {
-                if (timeInTicks%20 != 0)
-                    break;
-                int[] time = Time.getCurrentTime();
-                if (time[0] >= 3 && time[0] < 6) {
+                if (time[0] >= settings.M_TIME_FROM[0] && time[0] < settings.M_TIME_TO[0]) {
                     TextComponentString text = new TextComponentString("Time remaining ");
-                    if (time[0] < 5)
-                        text.appendSibling(new TextComponentString(TextFormatting.RED + String.valueOf(5 - time[0]) + TextFormatting.RESET + ":"));
-                    String minute = String.valueOf(59 - time[1]);
-                    String second = String.valueOf(59 - time[2]);
+                    if (time[0] < M_TIME_TO_1[0])
+                        text.appendSibling(new TextComponentString(TextFormatting.RED + String.valueOf(M_TIME_TO_1[0] - time[0]) + TextFormatting.RESET + ":"));
+                    String minute = String.valueOf(M_TIME_TO_1[1] - time[1]);
+                    String second = String.valueOf(M_TIME_TO_1[2] - time[2]);
                     if (minute.length() == 1)
                         minute = "0" + minute;
                     if (second.length() == 1)
                         second = "0" + second;
-                    SPacketTitle timeTitle = new SPacketTitle(SPacketTitle.Type.SUBTITLE, text.appendSibling(new TextComponentString(TextFormatting.RED + minute + TextFormatting.RESET + ":" + TextFormatting.RED + second)), 0, 20, 0);
+                    SPacketTitle timeTitle = new SPacketTitle(SPacketTitle.Type.SUBTITLE, text.appendSibling(new TextComponentString(TextFormatting.RED + minute + TextFormatting.RESET + ":" + TextFormatting.RED + second)), 0, 100, 0);
                     for (EntityPlayerMP playerMP : plist) {
-                        playerMP.connection.sendPacket(Reference.PACKET_MAINTENANCE);
+                        playerMP.connection.sendPacket(PACKET_MAINTENANCE);
                         playerMP.connection.sendPacket(timeTitle);
                     }
                 }
-                else if (time[0] == 6 && time[1] == 0 && time[2] == 0)
+                else if (time[0] == settings.M_TIME_TO[0] && time[1] == settings.M_TIME_TO[1] && time[2] == settings.M_TIME_TO[2]) {
+                    for (EntityPlayerMP playerMP : plist)
+                        playerMP.connection.sendPacket(Reference.PACKET_MAINTENANCE_COMPLETE);
                     playerList.sendMessage(new TextComponentString(TextFormatting.BOLD + "[Maintenance Completed] " + TextFormatting.RESET + "please reconnect the server to enter the portal!"));
+                }
                 break;
             }
         }
-        if (timeInTicks > 0)
-            timeInTicks--;
+        timeRemaining-= Time.getSubstractInSecond(time, timePrevious);
+        timePrevious = time;
     }
 
     @SubscribeEvent
     public static void onPlayerJoin(PlayerEvent.PlayerLoggedInEvent event) {
         //V only in looby
         EntityPlayer player = event.player;
-        switch (Reference.MODE) {
+        switch (settings.MODE) {
             case ("lobby"): {
                 double x, y, z;
                 x = -23.5;
