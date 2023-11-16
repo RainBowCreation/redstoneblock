@@ -15,6 +15,8 @@ import java.util.List;
 public class Time {
     public static String offset;
     public static String prefix;
+    public static int TIME;
+    public static int WARNING_TIME;
     public static List<Integer> WARNING_TIME_LIST = new ArrayList<>();
 
     public static int[] getCurrentTime() {
@@ -92,8 +94,8 @@ public class Time {
         substitle.appendText("!!.");
         List<EntityPlayerMP> playerMPS = playerList.getPlayers();
         for (EntityPlayerMP playerMP : playerMPS) {
-            playerMP.connection.sendPacket(new SPacketTitle(SPacketTitle.Type.TITLE, title, 0, 100, 0));
-            playerMP.connection.sendPacket(new SPacketTitle(SPacketTitle.Type.SUBTITLE, substitle, 0, 100, 0));
+            Packet.sent(playerMP, title, SPacketTitle.Type.TITLE, 0, 100, 0);
+            Packet.sent(playerMP, substitle, SPacketTitle.Type.SUBTITLE, 0, 100, 0);
         }
         return true;
     }

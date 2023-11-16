@@ -16,6 +16,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.rainbowcreation.serverExtension.utils.Confighandler;
+import net.rainbowcreation.serverExtension.utils.Packet;
 import net.rainbowcreation.serverExtension.utils.Reference;
 
 import java.io.File;
@@ -35,15 +36,15 @@ public class main {
     @Mod.Instance
     public static main instance;
     public static File config;
-    private static final int staticTime = settings.TIME;
+    private static int staticTime;
 
-    private static int timeRemaining = staticTime;
+    private static int timeRemaining;
     private static int[] timePrevious = new int[3];
-    private static List<String> whitelist = Arrays.asList(Confighandler.whitelist.ITEM_WHITELIST);
+    private static List<String> whitelist;
+    public static List<String> blacklist;
     private static int Tick = 20;
     private static int tick = Tick;
     private static int[] M_TIME_TO_1;
-    private static SPacketTitle PACKET_MAINTENANCE;
     private static TextComponentString MAINTENANCE_TEXT = new TextComponentString(TextFormatting.RED + "Daily Maintenance " + TextFormatting.RESET);
 
 
@@ -62,7 +63,13 @@ public class main {
         System.out.println("Mode:" +settings.MODE);
         for (String txt : header)
             System.out.println(txt);
-        int i = settings.WARNING_TIME;
+        Time.TIME = Time.getTimeInSecond(settings.TIME);
+        staticTime = Time.TIME;
+        timeRemaining = staticTime;
+        whitelist = Arrays.asList(Confighandler.whitelist.ITEM_WHITELIST);
+        blacklist = Arrays.asList(Confighandler.blacklist.DO_NOT_BROADCAST_TITLE_TO);
+        Time.WARNING_TIME = Time.getTimeInSecond(settings.WARNING_TIME);
+        int i = Time.WARNING_TIME;
         while (i > 10) {
             Time.WARNING_TIME_LIST.add(i);
             i/=2;
@@ -76,7 +83,6 @@ public class main {
         String[] TIME_TO = Time.timeToString(settings.M_TIME_TO);
         M_TIME_TO_1 = Time.getSubstract(settings.M_TIME_TO, new int[]{0,0,1});
         MAINTENANCE_TEXT.appendSibling(new TextComponentString(TIME_FROM[0] + ":" + TIME_FROM[1] + TextFormatting.RED + "-" + TextFormatting.RESET + TIME_TO[0] + ":" + TIME_TO[1] + TextFormatting.RED));
-        PACKET_MAINTENANCE = new SPacketTitle(SPacketTitle.Type.TITLE, MAINTENANCE_TEXT, 0, 100,0);
     }
 
     @SubscribeEvent
@@ -116,8 +122,8 @@ public class main {
                 if (time[0] != timePrevious[0]) {
                     playerList.sendMessage(new TextComponentString(TextFormatting.BOLD + "[Maintenance Scheduler] " + TextFormatting.RESET).appendSibling(MAINTENANCE_TEXT));
                 }
-                if (!Time.alert(settings.M_TIME_FROM, "Maintenance Scheduler", "Server close in", playerList, true))
-                    Time.alert(timeRemaining, "Clear Lag", "Items will be cleared in", playerList);
+                Time.alert(settings.M_TIME_FROM, "Maintenance Scheduler", "Server close in", playerList, true);
+                Time.alert(timeRemaining, "Clear Lag", "Items will be cleared in", playerList);
                 if (Time.getSubstractInSecond(settings.M_TIME_FROM, Time.getCurrentTime()) == 0) {
                     world.getMinecraftServer().initiateShutdown();
                     return;
@@ -135,10 +141,10 @@ public class main {
                         minute = "0" + minute;
                     if (second.length() == 1)
                         second = "0" + second;
-                    SPacketTitle timeTitle = new SPacketTitle(SPacketTitle.Type.SUBTITLE, text.appendSibling(new TextComponentString(TextFormatting.RED + minute + TextFormatting.RESET + ":" + TextFormatting.RED + second)), 0, 100, 0);
+                    text.appendSibling(new TextComponentString(TextFormatting.RED + minute + TextFormatting.RESET + ":" + TextFormatting.RED + second));
                     for (EntityPlayerMP playerMP : plist) {
-                        playerMP.connection.sendPacket(PACKET_MAINTENANCE);
-                        playerMP.connection.sendPacket(timeTitle);
+                        Packet.sent(playerMP, MAINTENANCE_TEXT, SPacketTitle.Type.TITLE, 0, 100, 0);
+                        Packet.sent(playerMP, text, SPacketTitle.Type.SUBTITLE, 0, 100, 0);
                     }
                 }
                 else if (time[0] == settings.M_TIME_TO[0] && time[1] == settings.M_TIME_TO[1] && time[2] == settings.M_TIME_TO[2]) {
