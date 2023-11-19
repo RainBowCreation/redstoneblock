@@ -4,9 +4,81 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fbfd5a2a-02fa-45ae-91c4-2fc1ab82b24f" name="Changes" comment="Update Config">
+    <list default="true" id="c2a4ded7-fac7-48bd-a5d0-a26036c52e57" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/discord.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules/d.api.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules/d.main.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules/d.test.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules/extension.api.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules/extension.main.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules/extension.test.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/command/LoggedCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/command/LoginCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/command/RegisterCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/config/GenaralConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/config/LoginerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/event/Handler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/exception/AuthmodException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/exception/BannedPlayerException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/exception/InvalidEmailException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/exception/InvalidPasswordException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/exception/LoginException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/exception/PlayerAlreadyExistException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/exception/PlayerNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/exception/RegistrationException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/exception/WrongPasswordConfirmationException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/exception/WrongPasswordException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/exception/WrongUsernameException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/guard/PlayerFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/guard/authentication/Authenticator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/guard/datasource/DatabaseSourceStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/guard/datasource/FileDataSourceStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/guard/datasource/IDataSourceStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/guard/datasource/db/ConnectionFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/guard/datasource/db/IConnectionFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/guard/datasource/db/IPlayersDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/guard/datasource/db/PlayersDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/guard/payload/IPayload.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/guard/payload/LoginPayload.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/guard/payload/RegistrationPayload.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/guard/registration/Registrator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/model/IPlayer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/model/Player.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/model/PlayerDescriptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/model/PlayerPos.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/utils/IString.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/utils/Packet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/utils/Reference.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/utils/Time.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/server-extension.main.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/server-extension.test.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/runClient.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/runClient.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/runServer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/runServer.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/serverExtension/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/serverExtension/main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/eula.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/debug.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/latest.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/serverExtension/main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/serverExtension/utils/Confighandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/serverExtension/utils/Packet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/serverExtension/utils/Reference.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/serverExtension/utils/Teleport.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/serverExtension/utils/Time.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mcmod.info" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mcmod.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/pack.mcmeta" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/pack.mcmeta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,26 +113,12 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="master" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="jar://$USER_HOME$/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.12.2-14.23.5.2860_mapped_snapshot_20171003-1.12/forge-1.12.2-14.23.5.2860_mapped_snapshot_20171003-1.12-sources.jar!/net/minecraft/potion/PotionEffect.java" root0="SKIP_INSPECTION" />
-  </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
-  </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 2
+  &quot;associatedIndex&quot;: 3
 }</component>
-  <component name="ProjectId" id="2Y0MZaylEZ7FfLbPUgJbKPvXz5y" />
+  <component name="ProjectId" id="2YNV9IqSPI2j5dqDTLimxWreCkp" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -68,96 +126,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;1.12.2&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/gg&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Facets&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.18164062&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.61290324&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;discord-application&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "1.12.2",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "D:/d"
   }
-}</component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\deaProjects\server-extension\run\mods" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="net.rainbowcreation.serverExtension.utils" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Gradle.server-extension [build]">
-    <configuration name="extension [buildDependents]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="buildDependents" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="extension [buildNeeded]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="buildNeeded" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="extension [init]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="init" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="server-extension [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+}]]></component>
+  <component name="RunManager" selected="Gradle.d [build]">
+    <configuration name="d [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -179,113 +158,44 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="d [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.server-extension [build]" />
-        <item itemvalue="Gradle.extension [buildDependents]" />
-        <item itemvalue="Gradle.extension [init]" />
-        <item itemvalue="Gradle.extension [buildNeeded]" />
+        <item itemvalue="Gradle.d [build]" />
+        <item itemvalue="Gradle.d [clean]" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="fbfd5a2a-02fa-45ae-91c4-2fc1ab82b24f" name="Changes" comment="" />
-      <created>1699658099932</created>
+      <changelist id="c2a4ded7-fac7-48bd-a5d0-a26036c52e57" name="Changes" comment="" />
+      <created>1700365870177</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1699658099932</updated>
+      <updated>1700365870177</updated>
     </task>
-    <task id="LOCAL-00001" summary="change outputfilename">
-      <option name="closed" value="true" />
-      <created>1699665669118</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1699665669118</updated>
-    </task>
-    <task id="LOCAL-00002" summary="update auto clear item">
-      <option name="closed" value="true" />
-      <created>1699726408877</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1699726408877</updated>
-    </task>
-    <task id="LOCAL-00003" summary="update auto clear item">
-      <option name="closed" value="true" />
-      <created>1699730741927</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1699730741927</updated>
-    </task>
-    <task id="LOCAL-00004" summary="update auto clear item">
-      <option name="closed" value="true" />
-      <created>1699819093208</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1699819093208</updated>
-    </task>
-    <task id="LOCAL-00005" summary="update auto clear item">
-      <option name="closed" value="true" />
-      <created>1699879202559</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1699879202559</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Fix counting bug.">
-      <option name="closed" value="true" />
-      <created>1699993276163</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1699993276163</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Fix counting bug.">
-      <option name="closed" value="true" />
-      <created>1700001910161</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1700001910161</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Fix lobbyspawn bug.">
-      <option name="closed" value="true" />
-      <created>1700074925236</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1700074925236</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Update Lobby Warning.">
-      <option name="closed" value="true" />
-      <created>1700087657866</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1700087657866</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Update Config">
-      <option name="closed" value="true" />
-      <created>1700126353057</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1700126353057</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Update Config">
-      <option name="closed" value="true" />
-      <created>1700171552424</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1700171552424</updated>
-    </task>
-    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -300,16 +210,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <ignored-roots>
-      <path value="$PROJECT_DIR$" />
-    </ignored-roots>
-    <MESSAGE value="change outputfilename" />
-    <MESSAGE value="update auto clear item" />
-    <MESSAGE value="Fix counting bug." />
-    <MESSAGE value="Fix lobbyspawn bug." />
-    <MESSAGE value="Update Lobby Warning." />
-    <MESSAGE value="Update Config" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update Config" />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
 </project>

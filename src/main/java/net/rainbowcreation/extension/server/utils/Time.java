@@ -1,4 +1,4 @@
-package net.rainbowcreation.serverExtension.utils;
+package net.rainbowcreation.extension.server.utils;
 
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.network.play.server.SPacketTitle;

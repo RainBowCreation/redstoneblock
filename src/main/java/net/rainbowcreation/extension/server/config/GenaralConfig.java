@@ -1,4 +1,4 @@
-package net.rainbowcreation.serverExtension.utils;
+package net.rainbowcreation.extension.server.config;
 
 import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.Config.Comment;
@@ -6,10 +6,12 @@ import net.minecraftforge.common.config.ConfigManager;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.rainbowcreation.extension.server.utils.Reference;
+import net.rainbowcreation.extension.server.utils.Time;
 
 @EventBusSubscriber(modid = Reference.MODID)
 @Config(modid = Reference.MODID, name = Reference.NAME, category = "general")
-public class Confighandler {
+public class GenaralConfig {
     public static Settings settings = new Settings();
     public static class Settings {
         @Config.Comment({"Time between each clear [H, M, S]"})

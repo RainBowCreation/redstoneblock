@@ -1,13 +1,13 @@
-package net.rainbowcreation.serverExtension.utils;
+package net.rainbowcreation.extension.server.utils;
 
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.network.play.server.SPacketTitle;
 import net.minecraft.util.text.ITextComponent;
-import net.rainbowcreation.serverExtension.main;
+import net.rainbowcreation.extension.server.Main;
 
 public class Packet {
     public static void sent(EntityPlayerMP player, ITextComponent textComponent, SPacketTitle.Type type, int fadein, int duration, int fadeout) {
-        if (main.blacklist.contains(player.getName())) {
+        if (Main.blacklist.contains(player.getName())) {
             player.sendMessage(textComponent);
         }
         else {
