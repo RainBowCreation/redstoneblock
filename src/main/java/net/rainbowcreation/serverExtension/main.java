@@ -12,6 +12,7 @@ import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
@@ -150,7 +151,7 @@ public class main {
                 else if (time[0] == settings.M_TIME_TO[0] && time[1] == settings.M_TIME_TO[1] && time[2] == settings.M_TIME_TO[2]) {
                     for (EntityPlayerMP playerMP : plist)
                         playerMP.connection.sendPacket(Reference.PACKET_MAINTENANCE_COMPLETE);
-                    playerList.sendMessage(new TextComponentString(TextFormatting.BOLD + "[Maintenance Completed] " + TextFormatting.RESET + "please reconnect the server to enter the portal!"));
+                    playerList.sendMessage(new TextComponentString(TextFormatting.BOLD + "[Maintenance Completed]" ));
                 }
                 break;
             }
@@ -159,28 +160,30 @@ public class main {
         timePrevious = time;
     }
 
-    @SubscribeEvent
+    @SubscribeEvent(priority = EventPriority.HIGHEST)
     public static void onPlayerJoin(PlayerEvent.PlayerLoggedInEvent event) {
         //V only in looby
         EntityPlayer player = event.player;
         switch (settings.MODE) {
             case ("lobby"): {
+                /*
                 double x, y, z;
                 x = -23.5;
                 y = 63.5;
                 z = 0.5;
                 player.setPositionAndUpdate(x, y, z);
+                 */
                 player.sendMessage(new TextComponentString(TextFormatting.BOLD + "[Queue] " + TextFormatting.RESET + "enter the portal to join queue"));
                 EntityPlayerMP playerMP = (EntityPlayerMP) player;
                 SPacketTitle packetActionBar = new SPacketTitle(SPacketTitle.Type.ACTIONBAR, new TextComponentString(player.getName()), 20,120,20);
                 playerMP.connection.sendPacket(Reference.PACKET_TITLE);
                 playerMP.connection.sendPacket(Reference.PACKET_SUB_TITLE);
                 playerMP.connection.sendPacket(packetActionBar);
+                player.sendMessage(new TextComponentString(TextFormatting.BOLD + "[Auth] " + TextFormatting.RESET + "please login or register\n/login <password>\nor\n/register <password> <password>"));
                 break;
             }
             case ("server"): {
                 player.addPotionEffect(new PotionEffect(MobEffects.ABSORPTION, 60 * 20, 4));
-                player.sendMessage(new TextComponentString(TextFormatting.BOLD + "[Auth] " + TextFormatting.RESET + "please login or register\n/login <password>\nor\n/register <password> <password>"));
                 break;
             }
         }
