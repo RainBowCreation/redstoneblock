@@ -20,7 +20,7 @@ import static net.rainbowcreation.redstoneblock.config.RedstoneBlockConfig.block
 @Mod(modid = Reference.MODID, name = Reference.NAME, version = Reference.VERSION, serverSideOnly = true, acceptableRemoteVersions = "*", acceptedMinecraftVersions = "[1.12.2]")
 public class Main {
   public static Logger LOGGER = FMLLog.log;
-  public static final Set<Block> redstoneRelatedBlocks = new HashSet<>();
+  public static Set<Block> redstoneRelatedBlocks = new HashSet<>();
 
   @EventHandler
   public void preInit(FMLPreInitializationEvent event) throws Exception {
