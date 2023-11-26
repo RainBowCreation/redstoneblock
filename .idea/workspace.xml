@@ -5,80 +5,55 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c2a4ded7-fac7-48bd-a5d0-a26036c52e57" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/discord.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/d.api.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/d.main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/d.test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/extension.api.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/extension.main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/extension.test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/command/LoggedCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/command/LoginCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/command/RegisterCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/config/GenaralConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/config/LoginerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/event/Handler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/exception/AuthmodException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/exception/BannedPlayerException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/exception/InvalidEmailException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/exception/InvalidPasswordException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/exception/LoginException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/exception/PlayerAlreadyExistException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/exception/PlayerNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/exception/RegistrationException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/exception/WrongPasswordConfirmationException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/exception/WrongPasswordException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/exception/WrongUsernameException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/guard/PlayerFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/guard/authentication/Authenticator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/guard/datasource/DatabaseSourceStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/guard/datasource/FileDataSourceStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/guard/datasource/IDataSourceStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/guard/datasource/db/ConnectionFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/guard/datasource/db/IConnectionFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/guard/datasource/db/IPlayersDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/guard/datasource/db/PlayersDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/guard/payload/IPayload.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/guard/payload/LoginPayload.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/guard/payload/RegistrationPayload.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/guard/registration/Registrator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/model/IPlayer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/model/Player.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/model/PlayerDescriptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/model/PlayerPos.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/utils/IString.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/utils/Packet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/utils/Reference.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/utils/Time.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules/redstoneblock.api.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules/redstoneblock.main.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules/redstoneblock.test.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/redstoneblock/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/redstoneblock/config/RedstoneBlockConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/redstoneblock/event/RedStone.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/server-extension.main.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/server-extension.test.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/runClient.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/runClient.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/runServer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/runServer.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/eula.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/debug.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/logs/latest.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/serverExtension/main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/serverExtension/utils/Confighandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/serverExtension/utils/Packet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/serverExtension/utils/Reference.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/serverExtension/utils/Teleport.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/serverExtension/utils/Time.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mcmod.info" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mcmod.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/pack.mcmeta" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/pack.mcmeta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/command/LoggedCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/command/LoginCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/command/RegisterCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/config/GenaralConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/config/LoginerConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/event/Handler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/exception/AuthmodException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/exception/BannedPlayerException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/exception/InvalidEmailException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/exception/InvalidPasswordException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/exception/LoginException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/exception/PlayerAlreadyExistException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/exception/PlayerNotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/exception/RegistrationException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/exception/WrongPasswordConfirmationException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/exception/WrongPasswordException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/exception/WrongUsernameException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/guard/PlayerFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/guard/authentication/Authenticator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/guard/datasource/DatabaseSourceStrategy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/guard/datasource/FileDataSourceStrategy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/guard/datasource/IDataSourceStrategy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/guard/datasource/db/ConnectionFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/guard/datasource/db/IConnectionFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/guard/datasource/db/IPlayersDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/guard/datasource/db/PlayersDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/guard/payload/IPayload.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/guard/payload/LoginPayload.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/guard/payload/RegistrationPayload.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/guard/registration/Registrator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/model/IPlayer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/model/Player.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/model/PlayerDescriptor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/model/PlayerPos.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/utils/IString.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/redstoneblock/utils/IString.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/utils/Packet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/redstoneblock/utils/Packet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/utils/Reference.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/redstoneblock/utils/Reference.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/extension/server/utils/Time.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/rainbowcreation/redstoneblock/utils/Time.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,9 +103,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "1.12.2",
+    "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "D:/d"
   }

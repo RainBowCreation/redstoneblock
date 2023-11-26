@@ -11,6 +11,9 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/loginer.api.iml" filepath="$PROJECT_DIR$/.idea/modules/loginer.api.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/loginer.main.iml" filepath="$PROJECT_DIR$/.idea/modules/loginer.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/loginer.test.iml" filepath="$PROJECT_DIR$/.idea/modules/loginer.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/redstoneblock.api.iml" filepath="$PROJECT_DIR$/.idea/modules/redstoneblock.api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/redstoneblock.main.iml" filepath="$PROJECT_DIR$/.idea/modules/redstoneblock.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/redstoneblock.test.iml" filepath="$PROJECT_DIR$/.idea/modules/redstoneblock.test.iml" />
     </modules>
   </component>
 </project>

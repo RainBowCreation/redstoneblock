@@ -1,4 +1,4 @@
-package net.rainbowcreation.extension.server.utils;
+package net.rainbowcreation.redstoneblock.utils;
 
 public class IString {
     public static String genHeader(String name) {
