@@ -1,8 +1,6 @@
 package net.rainbowcreation.redstoneblock.event;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockObserver;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.BlockPos;
@@ -13,7 +11,9 @@ import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.rainbowcreation.redstoneblock.Main;
 import net.rainbowcreation.redstoneblock.utils.Reference;
+
 
 import static net.rainbowcreation.redstoneblock.config.RedstoneBlockConfig.redstoneBlock;
 
@@ -31,9 +31,8 @@ public class RedStone {
     if (world.isBlockPowered(pos)) {
       IBlockState blockState = world.getBlockState(pos);
       Block block = blockState.getBlock();
-      if (block.getBlockHardness(blockState, world, pos) > 0) {
+      if (Main.redstoneRelatedBlocks.contains(block))
         world.destroyBlock(pos, false);
-      }
     }
   }
 
@@ -44,9 +43,8 @@ public class RedStone {
     EntityPlayer player = event.getPlayer();
     IBlockState blockState = event.getPlacedBlock();
     // Check if the player is right-clicking to place a block
-    Material material = blockState.getMaterial();
     // Check if the block being placed is redstone-related
-    if (material == Material.CIRCUITS|| blockState.getBlock() instanceof BlockObserver || material == Material.PISTON) {
+    if (Main.redstoneRelatedBlocks.contains(blockState.getBlock())) {
       player.sendMessage(new TextComponentString(TextFormatting.BOLD  + "[Redstone Block] " + TextFormatting.RED + "Redstone disabled on this server"));
       event.setCanceled(true);
     }

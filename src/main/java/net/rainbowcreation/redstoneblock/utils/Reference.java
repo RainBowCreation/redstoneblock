@@ -6,7 +6,7 @@ import java.util.List;
 public class Reference {
     public static final String MODID = "rbcredstoneblock";
     public static final String NAME = "RBCredstoneBlock";
-    public static final String VERSION = "1.12.2-v1";
+    public static final String VERSION = "1.12.2-v1.1";
 
     public static final List<String> HEADER = Arrays.asList("######################################################################################",
             "#  _____       _       ____                 _____                _   _               #",
